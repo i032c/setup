@@ -1,0 +1,28 @@
+- name: setup
+  hosts: all 
+  become: yes
+
+  tasks:
+    - name: system upgrade
+      pacman:
+        update_cache: yes
+        upgrade: yes
+    - name: setup software
+      pacman:
+        name: '{{ item }}'
+        state: present
+        update_cache: yes
+      with_items:
+        alsa-utils
+        base-devel
+        dhcpcd
+        git
+        lynx
+        mpv
+        mupdf
+        rxvt-unicode
+        sudo
+        unzip
+        vim
+        w3m
+        zip
