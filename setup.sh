@@ -1,6 +1,6 @@
-if ! which ansible > /dev/null 2>&1 ; then
-	echo "installing ansible"
-	sudo pacman -Syu; sudo pacman -S ansible
+if ! which puppet > /dev/null 2>&1 ; then
+	echo "installing puppet"
+	pacman -Syu; pacman -S puppet
 fi
 
-ansible-playbook -K setup.yml
+puppet apply setup.pp
